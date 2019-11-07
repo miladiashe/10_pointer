@@ -3,28 +3,33 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-void swap_func (int x, int y){
-	int temp;
-	temp = x;
-	x = y;
-	y = temp;
-}
-
-void swap_poin (int *x, int *y){
-	int temp;
-	temp = *x;
-	*x = *y;
-	*y = temp;
-}
 
 
 int main(int argc, char *argv[]) {
-	int a = 3;
-	int b = 5;
+	int i;
+	int grade[5];
+	int avr;
+	int *ptr;
 	
-	swap_poin(&a, &b);
+	ptr = grade;
 	
-	printf("a:%i, b:%i\n", a, b);		
+	for (i=0;i<5;i++)
+	{
+		printf("input value[%i] = ", i);
+		scanf("%d", ptr+i);
+	}
+	
+	for(i=0;i<5;i++){
+		printf("grade[%d] = %d\n", i, *(ptr+i));
+	}
+	
+	for(i=0;i<5;i++)
+	{
+		avr += *(ptr+i);
+	}
+	
+	avr = avr/5;
+	printf("vudrbs= %d", avr);
 	
 	return 0;
 }
